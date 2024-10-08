@@ -62,11 +62,43 @@ button.addEventListener("click", () => {
     let newBox = document.createElement('input');
     newBox.setAttribute('type', 'checkbox')
     value++;
+    newBox.setAttribute('class', 'checkbox');
     newBox.setAttribute('id', `item${value}`)
     newDiv.appendChild(newLi);
     newDiv.appendChild(newBox);
     //container.appendChild('br');
   });
+
+let listArray = document.querySelectorAll('li');
+let divItem = document.querySelector('div');
+let boxArray = document.querySelectorAll('input[class="checkbox"');
+console.log(boxArray);
+boxArray.forEach(checkbox => {
+    var checkId = checkbox.id;
+    checkbox.addEventListener("click", () => {
+    for (var i = 0; i < listArray.length; i++) {
+        if (listArray[i].id == checkId) {
+                listArray[i].style.textDecoration = "line-through";
+            }
+        }
+    })
+})
+
+//------CHECK BOX PLUS STRIKETHROUGH CHATGPT--------------
+// Create checkbox
+// let newBox = document.createElement('input');
+// newBox.setAttribute('type', 'checkbox');
+// newBox.setAttribute('id', `checkbox${value}`);
+// newBox.addEventListener('change', (event) => {
+//     // Strike through text when checkbox is checked
+//     if (event.target.checked) {
+//         newLi.classList.add('strikethrough');
+//     } else {
+//         newLi.classList.remove('strikethrough');
+//     }
+// });
+
+
 
 //when a list item is clicked, that list items value is set equal to the original value inclosed in a <strike> tag
 //newLi.appendChild(newBox);
